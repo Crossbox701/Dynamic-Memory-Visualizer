@@ -1,12 +1,34 @@
 {
-  "name": "memory-visualizer",
-  "version": "1.0.0",
-  "private": true,
+  "name": "dynamic-memory-visualizer",
+  "version": "2.0.0",
+  "description": "Interactive Operating System Memory Management Visualizer - Paging, Segmentation, FIFO & LRU Algorithms",
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "keywords": [
+    "memory-management",
+    "operating-systems",
+    "visualization",
+    "paging",
+    "segmentation",
+    "education",
+    "react",
+    "gsap"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/dynamic-memory-visualizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/dynamic-memory-visualizer/issues"
+  },
+  "homepage": "https://github.com/yourusername/dynamic-memory-visualizer#readme",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx",
+    "format": "prettier --write \"src/**/*.{js,jsx,css}\""
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -18,5 +40,9 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
     "vite": "^5.1.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   }
 }

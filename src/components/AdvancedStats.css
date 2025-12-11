@@ -1,0 +1,257 @@
+.advanced-stats {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.8) 0%, rgba(36, 36, 46, 0.6) 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.75rem;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.75rem;
+  color: var(--accent-primary);
+}
+
+.stats-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background: rgba(36, 36, 46, 0.4);
+  border: 1px solid rgba(91, 95, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card:hover {
+  background: rgba(46, 46, 56, 0.6);
+  border-color: rgba(91, 95, 255, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(91, 95, 255, 0.15), rgba(124, 93, 255, 0.1));
+  border-radius: 12px;
+  color: var(--accent-primary);
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1);
+  background: linear-gradient(135deg, rgba(91, 95, 255, 0.25), rgba(124, 93, 255, 0.15));
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-value {
+  font-size: 2.25rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.stat-status {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 0.5rem;
+}
+
+.trending-up {
+  color: var(--accent-success);
+}
+
+.trending-down {
+  color: var(--warning);
+}
+
+/* Health Status Colors */
+.health-success .stat-value {
+  background: linear-gradient(135deg, var(--accent-success), #00f5a0);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.health-success .stat-icon {
+  background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(0, 245, 160, 0.1));
+  color: var(--accent-success);
+}
+
+.health-success .stat-status {
+  background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(0, 208, 132, 0.1));
+  color: var(--accent-success);
+  border: 1px solid rgba(0, 208, 132, 0.3);
+}
+
+.health-warning .stat-value {
+  background: linear-gradient(135deg, var(--warning), #ffc857);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.health-warning .stat-icon {
+  background: linear-gradient(135deg, rgba(255, 179, 71, 0.15), rgba(255, 200, 87, 0.1));
+  color: var(--warning);
+}
+
+.health-warning .stat-status {
+  background: linear-gradient(135deg, rgba(255, 179, 71, 0.15), rgba(255, 179, 71, 0.1));
+  color: var(--warning);
+  border: 1px solid rgba(255, 179, 71, 0.3);
+}
+
+.health-danger .stat-value {
+  background: linear-gradient(135deg, var(--accent-danger), #ff7a7a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.health-danger .stat-icon {
+  background: linear-gradient(135deg, rgba(255, 87, 87, 0.15), rgba(255, 122, 122, 0.1));
+  color: var(--accent-danger);
+}
+
+.health-danger .stat-status {
+  background: linear-gradient(135deg, rgba(255, 87, 87, 0.15), rgba(255, 87, 87, 0.1));
+  color: var(--accent-danger);
+  border: 1px solid rgba(255, 87, 87, 0.3);
+}
+
+.stat-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(36, 36, 46, 0.6);
+  overflow: hidden;
+}
+
+.stat-progress .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  box-shadow: 0 0 12px currentColor;
+}
+
+/* Detailed Metrics */
+.detailed-metrics {
+  background: rgba(36, 36, 46, 0.4);
+  border: 1px solid rgba(91, 95, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: rgba(46, 46, 56, 0.3);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.metric-row:hover {
+  background: rgba(56, 56, 66, 0.5);
+  transform: translateX(3px);
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.metric-value {
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 700;
+  background: linear-gradient(120deg, var(--accent-primary), var(--accent-secondary));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -19,6 +19,9 @@ import SegmentsVisualizer from './components/SegmentsVisualizer';
 import FaultsTimeline from './components/FaultsTimeline';
 import DataTables from './components/DataTables';
 import Toast from './components/Toast';
+import MemoryChart from './components/MemoryChart';
+import AdvancedStats from './components/AdvancedStats';
+import ExportPanel from './components/ExportPanel';
 import './App.css';
 
 function App() {
@@ -216,11 +219,30 @@ function App() {
 
           {/* Visualization Area */}
           <main className="visualization-area">
-            {/* Frames */}
+            {/* Memory Chart */}
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
+              className="viz-section"
+            >
+              <MemoryChart
+                stats={{
+                  used: state.frames.filter(f => f.status === 'allocated' || f.status === 'accessed').length,
+                  free: state.frames.filter(f => f.status === 'free').length,
+                  total: state.frames.length,
+                  utilization: state.frames.length > 0 
+                    ? ((state.frames.filter(f => f.status === 'allocated' || f.status === 'accessed').length / state.frames.length) * 100).toFixed(1)
+                    : 0
+                }}
+              />
+            </motion.section>
+
+            {/* Frames */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
               className="viz-section"
             >
               <div className="viz-header">
@@ -235,7 +257,7 @@ function App() {
               <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
                 className="viz-section"
               >
                 <div className="viz-header">
@@ -254,7 +276,7 @@ function App() {
               <motion.section
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
                 className="viz-section"
               >
                 <div className="viz-header">
@@ -264,6 +286,26 @@ function App() {
                 <FaultsTimeline faults={state.pageFaults} />
               </motion.section>
             )}
+
+            {/* Advanced Statistics */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="viz-section"
+            >
+              <AdvancedStats state={state} />
+            </motion.section>
+
+            {/* Export Panel */}
+            <motion.section
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="viz-section"
+            >
+              <ExportPanel state={state} manager={manager} />
+            </motion.section>
 
             {/* Data Tables */}
             <DataTables

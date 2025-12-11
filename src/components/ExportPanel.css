@@ -1,0 +1,143 @@
+.export-panel {
+  background: linear-gradient(135deg, rgba(26, 26, 34, 0.8) 0%, rgba(36, 36, 46, 0.6) 100%);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 1.75rem;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.export-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-primary);
+}
+
+.export-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.01em;
+}
+
+.export-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.export-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(36, 36, 46, 0.4);
+  border: 1px solid rgba(91, 95, 255, 0.2);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.export-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(91, 95, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.export-btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.export-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--accent-primary);
+}
+
+.export-btn:active {
+  transform: translateY(-1px);
+}
+
+.export-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.export-btn:disabled:hover {
+  border-color: rgba(91, 95, 255, 0.2);
+  box-shadow: none;
+}
+
+.export-btn span {
+  position: relative;
+  z-index: 1;
+}
+
+.export-btn svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Button Variants */
+.report-btn:hover {
+  background: linear-gradient(135deg, rgba(91, 95, 255, 0.15), rgba(124, 93, 255, 0.1));
+}
+
+.json-btn:hover {
+  background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(0, 245, 160, 0.1));
+  border-color: var(--accent-success);
+}
+
+.faults-btn:hover {
+  background: linear-gradient(135deg, rgba(255, 179, 71, 0.15), rgba(255, 200, 87, 0.1));
+  border-color: var(--warning);
+}
+
+/* Export Status */
+.export-status {
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.export-status.success {
+  background: linear-gradient(135deg, rgba(0, 208, 132, 0.15), rgba(0, 208, 132, 0.1));
+  color: var(--accent-success);
+  border: 1px solid rgba(0, 208, 132, 0.3);
+}
+
+.export-status.error {
+  background: linear-gradient(135deg, rgba(255, 87, 87, 0.15), rgba(255, 87, 87, 0.1));
+  color: var(--accent-danger);
+  border: 1px solid rgba(255, 87, 87, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .export-buttons {
+    grid-template-columns: 1fr;
+  }
+}
