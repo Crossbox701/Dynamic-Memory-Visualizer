@@ -39,19 +39,83 @@ function App() {
   const headerRef = useRef(null);
 
   useEffect(() => {
-    // GSAP Header Animation
+    // Enhanced GSAP Header Animation
     if (headerRef.current) {
-      gsap.fromTo(headerRef.current, 
+      const tl = gsap.timeline();
+      
+      tl.fromTo(headerRef.current, 
         {
           opacity: 0,
-          y: -50
+          y: -30,
+          scale: 0.98
         },
         {
           opacity: 1,
           y: 0,
+          scale: 1,
           duration: 1,
-          ease: 'power3.out'
+          ease: 'power4.out'
         }
+      );
+
+      // Animate header elements
+      tl.fromTo('.header-icon', 
+        {
+          scale: 0,
+          rotate: -180
+        },
+        {
+          scale: 1,
+          rotate: 0,
+          duration: 0.8,
+          ease: 'back.out(1.7)'
+        },
+        '-=0.7'
+      );
+
+      tl.fromTo('.header-title', 
+        {
+          x: -30,
+          opacity: 0
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          ease: 'power3.out'
+        },
+        '-=0.5'
+      );
+
+      tl.fromTo('.header-subtitle', 
+        {
+          x: -20,
+          opacity: 0
+        },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.5,
+          ease: 'power2.out'
+        },
+        '-=0.4'
+      );
+
+      tl.fromTo('.stat-card', 
+        {
+          y: 20,
+          opacity: 0,
+          scale: 0.9
+        },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 0.5,
+          stagger: 0.08,
+          ease: 'power3.out'
+        },
+        '-=0.3'
       );
     }
   }, []);

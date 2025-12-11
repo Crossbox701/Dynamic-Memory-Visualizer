@@ -1,26 +1,27 @@
 .segments-container {
   display: flex;
-  gap: 1rem;
-  padding: 0.5rem;
+  gap: 1.25rem;
+  padding: 0.75rem;
   overflow-x: auto;
-  min-height: 140px;
+  min-height: 150px;
 }
 
 .segment {
-  min-width: 150px;
-  height: 140px;
-  border-radius: 16px;
+  min-width: 160px;
+  height: 150px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--accent-success), #059669);
+  background: linear-gradient(135deg, var(--accent-success), #00b86f);
   color: white;
   font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s;
+  box-shadow: 0 6px 18px rgba(0, 208, 132, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .segment::before {
@@ -30,35 +31,48 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 100%);
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.12) 100%);
   pointer-events: none;
 }
 
+.segment:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0, 208, 132, 0.5);
+}
+
 .segment-name {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .segment-size {
   font-size: 0.9rem;
-  opacity: 0.9;
-  margin-bottom: 0.25rem;
+  opacity: 0.95;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
 }
 
 .segment-info {
   font-size: 0.75rem;
-  opacity: 0.8;
-  margin-bottom: 0.25rem;
+  opacity: 0.9;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
 }
 
 .segment-process {
   font-size: 0.7rem;
-  opacity: 0.7;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-  margin-top: 0.25rem;
+  opacity: 0.95;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  margin-top: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .empty-state {

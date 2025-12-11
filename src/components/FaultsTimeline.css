@@ -1,25 +1,27 @@
 .faults-timeline {
   display: flex;
-  gap: 0.75rem;
-  padding: 0.5rem;
+  gap: 1rem;
+  padding: 0.75rem;
   overflow-x: auto;
-  min-height: 80px;
+  min-height: 90px;
   align-items: center;
 }
 
 .fault-item {
-  min-width: 160px;
-  padding: 1rem 1.25rem;
-  border-radius: 12px;
-  background: linear-gradient(135deg, var(--accent-warning), #d97706);
-  color: var(--bg-primary);
+  min-width: 170px;
+  padding: 1.1rem 1.4rem;
+  border-radius: 14px;
+  background: linear-gradient(135deg, var(--accent-warning), #ff9a1f);
+  color: #1a1a22;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s;
+  box-shadow: 0 6px 18px rgba(255, 179, 71, 0.4);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  letter-spacing: 0.02em;
 }
 
 .fault-item::before {
@@ -29,13 +31,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.2) 100%);
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.15) 100%);
   pointer-events: none;
 }
 
 .fault-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 10px 24px rgba(255, 179, 71, 0.5);
 }
 
 .empty-state {

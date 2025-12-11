@@ -9,10 +9,28 @@ const FramesVisualizer = ({ frames }) => {
   useEffect(() => {
     if (containerRef.current) {
       const frameElements = containerRef.current.querySelectorAll('.frame');
+      
       gsap.fromTo(
         frameElements,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, stagger: 0.02, duration: 0.4, ease: 'back.out(1.7)' }
+        { 
+          scale: 0.7, 
+          opacity: 0,
+          y: 30,
+          rotateY: -45
+        },
+        { 
+          scale: 1, 
+          opacity: 1,
+          y: 0,
+          rotateY: 0,
+          stagger: {
+            amount: 0.6,
+            grid: 'auto',
+            from: 'start'
+          },
+          duration: 0.6,
+          ease: 'power3.out'
+        }
       );
     }
   }, [frames]);
@@ -31,8 +49,12 @@ const FramesVisualizer = ({ frames }) => {
         <motion.div
           key={frame.frameNo}
           className={`frame frame-${frame.status}`}
-          whileHover={{ scale: 1.05, rotate: 2 }}
-          whileTap={{ scale: 0.95 }}
+          whileHover={{ 
+            scale: 1.08, 
+            rotate: 3,
+            transition: { type: 'spring', stiffness: 300, damping: 15 }
+          }}
+          whileTap={{ scale: 0.92 }}
         >
           <div className="frame-number">F{frame.frameNo}</div>
           {frame.status === 'allocated' ? (
